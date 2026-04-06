@@ -1,0 +1,236 @@
+/* --- CSS Variables for Clean Architecture --- */
+:root {
+    --primary-color: #f97316; /* Energetic Orange for Marketing */
+    --primary-dark: #ea580c;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --bg-main: #ffffff;
+    --bg-light: #f8fafc;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --transition: 0.3s ease-in-out;
+}
+
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: var(--bg-main);
+    line-height: 1.7;
+}
+
+.text-center { text-align: center; }
+
+/* --- Layout & Utilities --- */
+.section {
+    padding: 6rem 10%;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Header & Nav --- */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 10%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.logo .dot {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    margin-top: 40px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content .highlight {
+    color: var(--primary-color);
+}
+
+.hero-content h2 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+/* --- Grid System & Cards (Expertise & Campaigns) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--bg-main);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    border-color: var(--primary-color);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.skills-stack {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills-stack span {
+    font-size: 0.8rem;
+    background: var(--bg-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    border: 1px solid #cbd5e1;
+}
+
+/* --- Contact & Footer --- */
+.contact-cta {
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--text-dark);
+    color: white;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content h2 { font-size: 1.8rem; }
+    .nav-links { display: none; }
+    .hero-btns { flex-direction: column; }
+    .btn { text-align: center; }
+}
